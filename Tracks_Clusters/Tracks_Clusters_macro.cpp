@@ -16,7 +16,7 @@ void Tracks_Clusters_macro(){
   TCanvas *canvas = new TCanvas("Canvas","a first way to plot a variable",800,600);
   
 
-  TH1F *hist_mu_mean = new TH1F("mu_average","Number of average interactions per bunch-crossingr of primary vertices; mu_average ; Events ",50,1,50);
+  TH1F *hist_mu_mean = new TH1F("mu_average","Number of average interactions per bunch-crossingr of primary vertices; mu_average ; Events ",50,1,100);
 
   int nentries, nbytes, i;
   nentries = (Int_t)tree->GetEntries();
@@ -61,7 +61,7 @@ void Tracks_Clusters_macro(){
   //Float_t npv_mu = -1;
   //tree->SetBranchAddress("NPV", &npv_mu);
 
-  TH2F *hist_npv_mu = new TH2F("NPV_mu","NPV vs mu_mean; NPV ; mu_average ; Events",50,1,50,50,1,50);
+  TH2F *hist_npv_mu = new TH2F("NPV_mu","NPV vs mu_mean; NPV ; mu_average ; Events",50,1,50,50,1,100);
 
   for (i = 0; i < nentries; i++)
     {

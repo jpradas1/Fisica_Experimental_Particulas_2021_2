@@ -8,7 +8,7 @@ void TC_Ex3_macro(){
 
   TFile *file = TFile::Open("Tracks_Clusters.root");
   TTree *tree = (TTree*) file->Get("JetRecoTree");
-  tree->Print();
+  //tree->Print();
 
   Float_t mu_mean = -1;
   UInt_t npv = -1;

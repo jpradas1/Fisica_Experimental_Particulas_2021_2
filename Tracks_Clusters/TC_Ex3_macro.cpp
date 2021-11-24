@@ -45,25 +45,25 @@ void TC_Ex3_macro(){
 
   hist_npv_Tck->SetFillColor(42);
   hist_npv_Tck->Draw("COL");
-  canvas->Print("npv_Tck.pdf");
+  canvas->Print("npv_Tck.png");
     
   //## Histogram mu vs NTracks
 
   hist_mu_Tck->SetFillColor(24);
   hist_mu_Tck->Draw("COL");
-  canvas->Print("mu_Tck.pdf");
+  canvas->Print("mu_Tck.png");
     
   //## Histogram NPV vs NClusters
 
   hist_npv_Clt->SetFillColor(33);
   hist_npv_Clt->Draw("COL");
-  canvas->Print("npv_Clt.pdf");
+  canvas->Print("npv_Clt.png");
     
   //## Histogram mu vs NClusters
 
   hist_mu_Clt->SetFillColor(0);
   hist_mu_Clt->Draw("COL");
-  canvas->Print("mu_Clt.pdf");
+  canvas->Print("mu_Clt.png");
   canvas->Draw();
   
 }

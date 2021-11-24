@@ -93,64 +93,64 @@ void TC_Ex4_5_6_macro(){
   
   hist_track_eta->SetFillColor(8);
   hist_track_eta->Draw();
-  canvas->Print("Track_eta.pdf");
+  canvas->Print("Track_eta.png");
     
   hist_track_phi->SetFillColor(16);
   hist_track_phi->Draw();
-  canvas->Print("Track_phi.pdf");
+  canvas->Print("Track_phi.png");
     
   hist_track_pT->SetFillColor(24);
   hist_track_pT->Draw();
-  canvas->Print("Track_pt.pdf");
+  canvas->Print("Track_pt.png");
   
   hist_track_m->SetFillColor(32);
   hist_track_m->Draw();
-  canvas->Print("Track_m.pdf");
+  canvas->Print("Track_m.png");
     
   hist_track_vtx->SetFillColor(40);
   hist_track_vtx->Draw();
-  canvas->Print("Track_vtx.pdf");
+  canvas->Print("Track_vtx.png");
     
   //Print cluster variables
     
   hist_cluster_pT->SetFillColor(7);
   hist_cluster_pT->Draw();
-  canvas->Print("Cluster_pt.pdf");
+  canvas->Print("Cluster_pt.png");
     
   hist_cluster_eta->SetFillColor(14);
   hist_cluster_eta->Draw();
-  canvas->Print("Cluster_eta.pdf");
+  canvas->Print("Cluster_eta.png");
     
   hist_cluster_phi->SetFillColor(21);
   hist_cluster_phi->Draw();
-  canvas->Print("Cluster_phi.pdf");
+  canvas->Print("Cluster_phi.png");
     
   hist_cluster_m->SetFillColor(28);
   hist_cluster_m->Draw();
-  canvas->Print("Cluster_m.pdf");
+  canvas->Print("Cluster_m.png");
   canvas->Draw();
     
   //Print particule variables
     
   hist_particle_pT->SetFillColor(6);
   hist_particle_pT->Draw();
-  canvas->Print("Particle_pt.pdf");
+  canvas->Print("Particle_pt.png");
     
   hist_particle_eta->SetFillColor(12);
   hist_particle_eta->Draw();
-  canvas->Print("Particle_eta.pdf");
+  canvas->Print("Particle_eta.png");
     
   hist_particle_phi->SetFillColor(18);
   hist_particle_phi->Draw();
-  canvas->Print("Particle_phi.pdf");
+  canvas->Print("Particle_phi.png");
   
   hist_particle_m->SetFillColor(24);
   hist_particle_m->Draw();
-  canvas->Print("Particle_m.pdf");
+  canvas->Print("Particle_m.png");
     
   hist_particle_pdgID->SetFillColor(30);
   hist_particle_pdgID->Draw();
-  canvas->Print("Particle_pdgID.pdf");
+  canvas->Print("Particle_pdgID.png");
   canvas->Draw();
 
 }

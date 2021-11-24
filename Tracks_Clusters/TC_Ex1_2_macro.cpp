@@ -39,18 +39,18 @@ void TC_Ex1_2_macro(){
 
   hist_mu_mean->SetFillColor(42);
   hist_mu_mean->Draw();
-  canvas->Print("mu_mean.pdf");
+  canvas->Print("mu_mean.png");
 
   //##  Histogram Event vs NPV 
 
   hist_npv->SetFillColor(24);
   hist_npv->Draw();
-  canvas->Print("npv.pdf");
+  canvas->Print("npv.png");
 
   //##  Histogram NPV vs mu
 
   hist_npv_mu->SetFillColor(33);
   hist_npv_mu->Draw();
-  canvas->Print("npv_mu.pdf");
+  canvas->Print("npv_mu.png");
   canvas->Draw();
 }

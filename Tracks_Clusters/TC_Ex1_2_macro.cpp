@@ -47,7 +47,7 @@ void TC_Ex1_2_macro(){
   hist_npv->Draw();
   canvas->Print("npv.pdf");
 
-  //##  Histogram NPV vs mu  ##
+  //##  Histogram NPV vs mu
 
   hist_npv_mu->SetFillColor(33);
   hist_npv_mu->Draw();

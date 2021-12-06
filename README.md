@@ -30,3 +30,9 @@ This respository is oriented to resolve the activities related to the course
 > <img src="Tracks_Clusters/Particle_pdgID.png" width="350">
 > 
 > Finally, in both track and cluster variable are found 'pT', 'eta', 'phi' , 'm', and 'vtx' in the case of track, this correspond to certain beam's properties, i.e., **transversal mommentum**, **psedu-rapidity** (η), **azimuthal angle** (φ) and **mass** respectively, 'vtx' is the vertex where come particles from. On other hand, in particle variables we found 'pdgID' corresponding to **Particle Data Group ID** which sort each particle.
+
+
+## Jets
+### Exercise 1
+
+> <img src="Jets/Graphs/WleadR_T.png" width="350"> <img src="Jets/Graphs/WR_T.png" width="350"> <img src="Jets/Graphs/leadR_T.png" width="350"> <img src="Jets/Graphs/R_T.png" width="350">

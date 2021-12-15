@@ -36,3 +36,13 @@ This respository is oriented to resolve the activities related to the course
 ### Exercise 1
 
 > <img src="Jets/Graphs/WleadR_T.png" width="350"> <img src="Jets/Graphs/WR_T.png" width="350"> <img src="Jets/Graphs/leadR_T.png" width="350"> <img src="Jets/Graphs/R_T.png" width="350">
+
+### Exercise 2
+
+> <img src="Jets/Graphs/Reco_npv.png" width="350"> <img src="Jets/Graphs/Reco_npv_prof.png" width="350"> <img src="Jets/Graphs/Truth_npv.png" width="350"> <img src="Jets/Graphs/Truth_npv_prof.png" width="350">
+> <img src="Jets/Graphs/Reco_mu.png" width="350"> <img src="Jets/Graphs/Reco_mu_prof.png" width="350"> <img src="Jets/Graphs/Truth_mu.png" width="350"> <img src="Jets/Graphs/Truth_mu_prof.png" width="350">
+
+### Exercise 3
+
+> <img src="Jets/Graphs/leadR_jvf.png" width="350"> <img src="Jets/Graphs/leadT_jvf.png" width="350">
+> <img src="Jets/Graphs/CleadR_jvf.png" width="350"> <img src="Jets/Graphs/CleadT_jvf.png" width="350"> 

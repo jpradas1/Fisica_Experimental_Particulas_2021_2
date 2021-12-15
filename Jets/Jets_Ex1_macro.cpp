@@ -187,10 +187,76 @@ void Jets_Ex1_macro(){
     
   //## Exercise 3 ##
     
-  vector<float> *reco_R4_jvf;
-  vector<float> *truth_R4_jvf;
+  vector<float> *track_R4_pt = {};
+  vector<float> *reco_R4_jvf = {};
+  tree->SetBranchAddress("TrackJets_R4_pt", &track_R4_pt);
   tree->SetBranchAddress("RecoJets_R4_jvf", &reco_R4_jvf);
-  tree->SetBranchAddress("TruthJets_R4_jvf", &truth_R4_jvf);
+    
+  // Cut
+  TH1F *hist_leadreco_pt_compare_c = new TH1F("Lead Reco-jet [Cuts]","Leading jet pT; pT (GeV);Events",20,0,200);
+
+  // No cuts
+  TH1F *hist_leadreco_pt_compare = new TH1F("Lead Reco-jet Compare","Leading jet pT; pT (GeV);Events",20,0,200);
+
+  TH1F *hist_leadtruth_pt_compare = new TH1F("Lead Truth-jet Compare","Leading jet pT; pT (GeV);Events",20,0,200);
+
+  TH1F *hist_leadtrack_pt_compare = new TH1F("Lead Track-jet Compare","Leading jet pT; pT (GeV);Events",20,0,200);
+
+  for (i = 0; i < nentries; i++) {
+    nbytes = tree->GetEntry(i);
+    if(reco_R4_pt->size()!=0 && reco_R4_pt->at(0)>20000.){
+      hist_leadreco_pt_compare->Fill(reco_R4_pt->at(0)/1000., evtw);
+      hist_leadtruth_pt_compare->Fill(truth_R4_pt->at(0)/1000., evtw);
+
+      if(std::abs(reco_R4_jvf->at(0)) > 0.5){
+        hist_leadreco_pt_compare_c->Fill(reco_R4_pt->at(0)/1000., evtw);}}
+
+    if(track_R4_pt->size()!=0){
+      hist_leadtrack_pt_compare->Fill(track_R4_pt->at(0)/1000., evtw);}
+  }
+
+  std::cout << "Done 3!" << std::endl;
+  canvas2->SetLogy();
+
+  // Compare Truth and Reco
+
+  // Printhistograms with cuts
+  hist_leadreco_pt_compare_c->SetMarkerStyle(20);
+  hist_leadreco_pt_compare_c->SetMarkerColor(kRed);
+  hist_leadreco_pt_compare_c->Draw("");
+
+  // Print histograms without cuts
+  hist_leadreco_pt_compare->SetMarkerStyle(20);
+  hist_leadreco_pt_compare->SetMarkerColor(kOrange);
+  hist_leadreco_pt_compare->Draw("Same");
+
+  hist_leadtruth_pt_compare->SetMarkerStyle(20);
+  hist_leadtruth_pt_compare->SetMarkerColor(kCyan);
+  hist_leadtruth_pt_compare->Draw("Same");
+  canvas2->Print("Graphs/lead_RTruth_cut.pdf");
+
+  // Compare Track and Reco
+
+  // Print histograms with cuts
+  hist_leadreco_pt_compare_c->SetMarkerStyle(20);
+  hist_leadreco_pt_compare_c->SetMarkerColor(kRed);
+  hist_leadreco_pt_compare_c->Draw("");
+
+  // Print histograms without cuts
+  hist_leadreco_pt_compare->SetMarkerStyle(20);
+  hist_leadreco_pt_compare->SetMarkerColor(kOrange);
+  hist_leadreco_pt_compare->Draw("Same");
+
+  hist_leadtrack_pt_compare->SetMarkerStyle(20);
+  hist_leadtrack_pt_compare->SetMarkerColor(kCyan);
+  hist_leadtrack_pt_compare->Draw("Same");
+  canvas2->Print("Graphs/lead_RTrack_cut.pdf");
+  canvas2->Draw();
+    
+  /*vector<float> *reco_R4_jvf = {};
+  vector<float> *track_R4_pt = {};
+  tree->SetBranchAddress("RecoJets_R4_jvf", &reco_R4_jvf);
+  tree->SetBranchAddress("TrackJets_R4_pt", &track_R4_pt);
     
   // No cut  
   TH1F *hist_leadreco_jvf = new TH1F("Lead Reco-jet JVF","Leading-R jet JVF; JVF;Events",20,-1,1);
@@ -277,6 +343,6 @@ void Jets_Ex1_macro(){
   hist_Cleadtruth100_jvf->SetMarkerColor(kBlue);
   hist_Cleadtruth100_jvf->DrawNormalized("same");
   canvas2->Print("Graphs/CleadT_jvf.png");
-  canvas2->Draw();
+  canvas2->Draw();*/
  
 }

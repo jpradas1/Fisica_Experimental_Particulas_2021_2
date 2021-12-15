@@ -157,7 +157,7 @@ void Jets_Ex4_macro(){
   hist_matched_reco_truth_500->SetMarkerStyle(20);
   hist_matched_reco_truth_500->SetMarkerColor(kRed);
   hist_matched_reco_truth_500->Draw("");
-  canvas->Print("ReTruth_03.pdf");
+  canvas->Print("Graphs/ReTruth_03.png");
     
   hist_matched_track_truth_20->SetMarkerStyle(20);
   hist_matched_track_truth_20->SetMarkerColor(kRed);
@@ -170,5 +170,5 @@ void Jets_Ex4_macro(){
   hist_matched_track_truth_500->SetMarkerStyle(20);
   hist_matched_track_truth_500->SetMarkerColor(kRed);
   hist_matched_track_truth_500->Draw("");
-  canvas->Print("TraTru_03.pdf");
+  canvas->Print("Graphs/TraTru_03.png");
 }

@@ -233,7 +233,7 @@ void Jets_Ex1_macro(){
   hist_leadtruth_pt_compare->SetMarkerStyle(20);
   hist_leadtruth_pt_compare->SetMarkerColor(kCyan);
   hist_leadtruth_pt_compare->Draw("Same");
-  canvas2->Print("Graphs/lead_RTruth_cut.pdf");
+  canvas2->Print("Graphs/lead_RTruth_cut.png");
 
   // Compare Track and Reco
 
@@ -250,7 +250,7 @@ void Jets_Ex1_macro(){
   hist_leadtrack_pt_compare->SetMarkerStyle(20);
   hist_leadtrack_pt_compare->SetMarkerColor(kCyan);
   hist_leadtrack_pt_compare->Draw("Same");
-  canvas2->Print("Graphs/lead_RTrack_cut.pdf");
+  canvas2->Print("Graphs/lead_RTrack_cut.png");
   canvas2->Draw();
     
   /*vector<float> *reco_R4_jvf = {};

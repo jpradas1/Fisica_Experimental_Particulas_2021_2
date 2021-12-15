@@ -44,5 +44,12 @@ This respository is oriented to resolve the activities related to the course
 
 ### Exercise 3
 
-> <img src="Jets/Graphs/leadR_jvf.png" width="350"> <img src="Jets/Graphs/leadT_jvf.png" width="350">
-> <img src="Jets/Graphs/CleadR_jvf.png" width="350"> <img src="Jets/Graphs/CleadT_jvf.png" width="350"> 
+> <img src="Jets/Graphs/leadR_jvf.png" width="350"> <img src="Jets/Graphs/CleadR_jvf.png" width="350"> <img src="Jets/Graphs/lead_RTruth_cut.png" width="350"> <img src="Jets/Graphs/lead_RTrack_cut.png" width="350">
+
+### Exercise 4
+
+> <img src="Jets/Graphs/DR_RT.png" width="350">
+
+### Exercise 5
+
+> <img src="Jets/Graphs/ReTruth_03.png" width="350"> <img src="Jets/Graphs/traTru_03.png" width="350">

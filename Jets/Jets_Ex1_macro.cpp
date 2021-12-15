@@ -115,11 +115,15 @@ void Jets_Ex1_macro(){
   float mu = -1;
   tree->SetBranchAddress("mu_average", &mu);
     
-  TH2F *hist_Rjetpt_npv = new TH2F("Reco-jet pT vs. NPV",";NPV; jet pT",50,1,50, 20, 0, 200);
-  TProfile *prof_Rjetpt_npv = new TProfile("Profile Reco-jet pT vs. NPV",";NPV; jet pT",50,1,50, 0, 200);
+  TH2F *hist_Rjetpt_npv = new TH2F("Reco-jet pT vs. NPV","Reco-jet;NPV; jet pT",50,1,50, 20, 0, 200);
+  TProfile *prof_Rjetpt_npv = new TProfile("Profile Reco-jet pT vs. NPV","Profile Reco-jet pT;NPV; jet pT",50,1,50, 0, 200);
+  TH2F *hist_Rjetpt_mu = new TH2F("Reco-jet pT vs. Mu_average","Reco-jet pT;Mu_average; jet pT",50,1,50, 20, 0, 200);
+  TProfile *prof_Rjetpt_mu = new TProfile("Profile Reco-jet pT vs. Mu_average","Profile Reco-jet pT;Mu_average; jet pT",50,1,50, 0, 200);
 
-  TH2F *hist_Tjetpt_npv = new TH2F("Truthjet pT vs. NPV",";NPV; jet pT",50,1,50, 20, 0, 200);
-  TProfile *prof_Tjetpt_npv = new TProfile("Profile Truth-jet pT vs. NPV",";NPV; jet pT",50,1,50, 0, 200);
+  TH2F *hist_Tjetpt_npv = new TH2F("Truthjet pT vs. Mu_average","Truthjet pT ;Mu_average; jet pT",50,1,50, 20, 0, 200);
+  TProfile *prof_Tjetpt_npv = new TProfile("Profile Truth-jet pT vs. Mu_average",";Profile Truth-jet pT;Mu_average; jet pT",50,1,50, 0, 200);
+  TH2F *hist_Tjetpt_mu = new TH2F("Truthjet pT vs. Mu_average","Truthjet pT ;Mu_average; jet pT",50,1,50, 20, 0, 200);
+  TProfile *prof_Tjetpt_mu = new TProfile("Profile Truth-jet pT vs. Mu_average",";Profile Truth-jet pT;Mu_average; jet pT",50,1,50, 0, 200);
     
   //int nentries, nbytes, i;
   //nentries = (Int_t)tree->GetEntries();
@@ -140,6 +144,20 @@ void Jets_Ex1_macro(){
               prof_Tjetpt_npv->Fill(truth_R4_pt->at(j)/1000.,npv,evtw);
           }
       }
+      
+      if(reco_R4_pt->size()!=0 && reco_R4_pt->at(0)>20000.){
+          for(int j=0; j<reco_R4_pt->size(); j++){
+              hist_Rjetpt_mu->Fill(reco_R4_pt->at(j)/1000.,mu,evtw);
+              prof_Rjetpt_mu->Fill(reco_R4_pt->at(j)/1000.,mu,evtw);
+          }
+      }
+      
+      if(truth_R4_pt->size()!=0 && truth_R4_pt->at(0)>20000.){
+          for(int j=0; j<truth_R4_pt->size(); j++){
+              hist_Tjetpt_mu->Fill(truth_R4_pt->at(j)/1000.,mu,evtw);
+              prof_Tjetpt_mu->Fill(truth_R4_pt->at(j)/1000.,mu,evtw);
+          }
+      }
   }
 
   std::cout << "Done 2" << std::endl;
@@ -155,6 +173,16 @@ void Jets_Ex1_macro(){
   canvas2->Print("Graphs/Truth_npv.png");
   prof_Tjetpt_npv->Draw("");
   canvas2->Print("Graphs/Truth_npv_prof.png");
+    
+  hist_Rjetpt_mu->Draw("colz"); 
+  canvas2->Print("Graphs/Reco_mu.png");
+  prof_Rjetpt_mu->Draw("");
+  canvas2->Print("Graphs/Reco_mu_prof.png");
+    
+  hist_Tjetpt_mu->Draw("colz"); 
+  canvas2->Print("Graphs/Truth_mu.png");
+  prof_Tjetpt_mu->Draw("");
+  canvas2->Print("Graphs/Truth_mu_prof.png");
   canvas2->Draw();
     
   //## Exercise 3 ##
@@ -184,10 +212,13 @@ void Jets_Ex1_macro(){
     
   // Applying cut
     
-  TH1F *hist_Cleadreco_jvf = new TH1F("Lead Reco-jet JVF","Leading-R jet JVF; JVF;Events",20,-1,1);
-  TH1F *hist_Cleadreco100_jvf = new TH1F("Lead Reco-jet JVF","Leading-R jet JVF; JVF;Events",20,-1,1);
-  TH1F *hist_Cleadtruth_jvf = new TH1F("Lead Truth-jet JVF","Leading-T jet JVF; JVF;Events",20,-1,1);
-  TH1F *hist_Cleadtruth100_jvf = new TH1F("Lead Truth-jet JVF","Leading-T jet JVF; JVF;Events",20,-1,1);
+  TH1F *hist_Cleadreco_jvf = new TH1F("Lead Reco-jet JVF","Leading-R jet JVF (|JVF|>0.5); JVF;Events",20,-1,1);
+  TH1F *hist_Cleadreco100_jvf = new TH1F("Lead Reco-jet JVF","Leading-R jet JVF (|JVF|>0.5); JVF;Events",20,-1,1);
+  TH1F *hist_Cleadtruth_jvf = new TH1F("Lead Truth-jet JVF","Leading-T jet JVF (|JVF|>0.5); JVF;Events",20,-1,1);
+  TH1F *hist_Cleadtruth100_jvf = new TH1F("Lead Truth-jet JVF","Leading-T jet JVF (|JVF|>0.5); JVF;Events",20,-1,1);
+    
+  //TProfile *prof_CRjetpt_npv = new TProfile("Profile Reco-jet pT vs. NPV","Profile Reco-jet pT (|JVF|>0.5);NPV; jet pT",50,1,50, 0, 200);
+  //TProfile *prof_CTjetpt_npv = new TProfile("Profile Truth-jet pT vs. NPV","(|JVF|>0.5);Profile Truth-jet pT NPV; jet pT",50,1,50, 0, 200);
    
   for (i = 0; i < nentries; i++){
       nbytes = tree->GetEntry(i);
@@ -195,11 +226,19 @@ void Jets_Ex1_macro(){
       if(reco_R4_pt->size()!=0 && reco_R4_pt->at(0)>20000. && reco_R4_jvf->at(0)>0.5 ){
           hist_Cleadreco_jvf->Fill(reco_R4_jvf->at(0), evtw);
           if(reco_R4_pt->at(0)>100000.){hist_Cleadreco100_jvf->Fill(reco_R4_jvf->at(0), evtw);}
+          
+          //for(int j=0; j<reco_R4_pt->size(); j++){
+            //  prof_CRjetpt_npv->Fill(reco_R4_pt->at(j)/1000.,npv,evtw);
+          //}
       }
       
       if(reco_R4_pt->size()!=0 && reco_R4_pt->at(0)>20000. && reco_R4_jvf->at(0)>0.5 ){
           hist_Cleadtruth_jvf->Fill(reco_R4_jvf->at(0), evtw);
           if(reco_R4_pt->at(0)>100000.){hist_Cleadtruth100_jvf->Fill(reco_R4_jvf->at(0), evtw);}
+          
+          //for(int j=0; j<truth_R4_pt->size(); j++){
+            //  prof_CTjetpt_npv->Fill(truth_R4_pt->at(j)/1000.,npv,evtw);
+          //}
       }
   }
   
@@ -236,6 +275,61 @@ void Jets_Ex1_macro(){
   hist_Cleadtruth100_jvf->SetMarkerColor(kBlue);
   hist_Cleadtruth100_jvf->DrawNormalized("same");
   canvas2->Print("Graphs/CleadT_jvf.png");
+  canvas2->Draw();
+    
+  //## Exercise 4 ##
+    
+  vector<float> *reco_R4_eta;
+  vector<float> *reco_R4_phi;
+  vector<float> *reco_R4_m;
+  tree->SetBranchAddress("RecoJets_R4_eta", &reco_R4_eta);
+  tree->SetBranchAddress("RecoJets_R4_phi", &reco_R4_phi);
+  tree->SetBranchAddress("RecoJets_R4_m", &reco_R4_m);
+    
+  vector<float> *truth_R4_eta;
+  vector<float> *truth_R4_phi;
+  vector<float> *truth_R4_m;
+  tree->SetBranchAddress("TruthJets_R4_eta", &truth_R4_eta);
+  tree->SetBranchAddress("TruthJets_R4_phi", &truth_R4_phi);
+  tree->SetBranchAddress("TruthJets_R4_m", &truth_R4_m);
+    
+  TH1F *hist_DR_reco_truth = new TH1F("Delta R reco","Delta R; #Delta R; Events",20,0,2);
+  TH1F *hist_DR_Creco_truth = new TH1F("Delta R reco","Delta R (|JVF|>0.5); #Delta R; Events",20,0,2);
+
+  for (i = 0; i < nentries; i++){
+      nbytes = tree->GetEntry(i);
+
+      if(truth_R4_pt->size()!=0 && truth_R4_pt->at(0)>20000.){
+          TLorentzVector truthJet;
+    truthJet.SetPtEtaPhiM(truth_R4_pt->at(0),truth_R4_eta->at(0),truth_R4_phi->at(0),truth_R4_m->at(0));
+          if(reco_R4_pt->size()!=0 && fabs(reco_R4_jvf->at(0))>0.5){      
+              TLorentzVector recoJet;
+    recoJet.SetPtEtaPhiM(reco_R4_pt->at(0),reco_R4_eta->at(0),reco_R4_phi->at(0),reco_R4_m->at(0));
+        //Plot the Delta R
+        hist_DR_reco_truth->Fill(truthJet.DeltaR(recoJet),evtw);}
+      }
+      
+      //Aplying Cut
+      if(truth_R4_pt->size()!=0 && truth_R4_pt->at(0)>20000. && reco_R4_jvf->at(0)>0.5){
+          TLorentzVector truthJet;
+    truthJet.SetPtEtaPhiM(truth_R4_pt->at(0),truth_R4_eta->at(0),truth_R4_phi->at(0),truth_R4_m->at(0));
+          if(reco_R4_pt->size()!=0 && fabs(reco_R4_jvf->at(0))>0.5){      
+              TLorentzVector recoJet;
+    recoJet.SetPtEtaPhiM(reco_R4_pt->at(0),reco_R4_eta->at(0),reco_R4_phi->at(0),reco_R4_m->at(0));
+        //Plot the Delta R
+        hist_DR_Creco_truth->Fill(truthJet.DeltaR(recoJet),evtw);}
+      }
+  }
+
+  std::cout << "Done 4!" << std::endl;
+    
+  hist_DR_reco_truth->Scale(1/hist_DR_reco_truth->Integral());
+  hist_DR_reco_truth->DrawNormalized("");
+  canvas2->Print("Graphs/DR_RT.png");
+    
+  hist_DR_Creco_truth->Scale(1/hist_DR_reco_truth->Integral());
+  hist_DR_Creco_truth->DrawNormalized("");
+  canvas2->Print("Graphs/DR_RT_Cut.png");
   canvas2->Draw();
     
 }

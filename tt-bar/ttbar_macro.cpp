@@ -231,10 +231,81 @@ void ttbar_macro (){
     std::cout << "Cut7:" << cut7 << std::endl;
     std::cout << "Cut8:" << cut8 << std::endl;
     
+    // Histogram for Cuts
+    canvas-> SetLogy();
+    cutflow-> SetFillColor(kBlue);
     cutflow->Draw("");
-    canvas->Draw();
+    cutflow-> Print("cutflow.png");
+    canvas->Clear();
     
+    //Histogram for Leptons
+    hist_lep_pt->SetFillColor(kRed);
+    hist_lep_pt->Draw();
+    canvas->Print("hist_lept_pt.png");
+    canvas->Clear();
+
+    hist_lep_pt_cone30->SetFillColor(kCyan);
+    hist_lep_pt_cone30->Draw();
+    canvas->Print("hist_lept_pt_cone30.png");
+    canvas->Clear();
+
+    hist_lep_et_cone20->SetFillColor(kCyan);
+    hist_lep_et_cone20->Draw();
+    canvas->Print("hist_lept_et_cone20.png");
+    canvas->Clear();
+
+    hist_lep_eta->SetFillColor(kCyan);
+    hist_lep_eta->Draw();
+    canvas->Print("hist_lept_eta.png");
+    canvas->Clear();
+
+    //Histogram for Jets
+
+    hist_njets->SetFillColor(kCyan);
     hist_njets->Draw();
-    canvas->Draw();
+    canvas->Print("hist_njets.png");
+    canvas->Clear();
+
+    hist_jet_pt->SetFillColor(kCyan);
+    hist_jet_pt->Draw();
+    canvas->Print("hist_jets_pt.png");
+    canvas->Clear();
+
+    hist_jet_eta->SetFillColor(kCyan);
+    hist_jet_eta->Draw();
+    canvas->Print("hist_jets_eta.png");
+    canvas->Clear();
+
+    hist_jet_JVF->SetFillColor(kCyan);
+    hist_jet_JVF->Draw();
+    canvas->Print("hist_jets_JVF.png");
+    canvas->Clear();
+
+    hist_jet_MV1->SetFillColor(kCyan);
+    hist_jet_MV1->Draw();
+    canvas->Print("hist_jets_MV1.png");
+    canvas->Clear();
+
+    //Histogram for b-Jets
+
+    hist_nbjets->SetFillColor(kCyan);
+    hist_nbjets->Draw();
+    canvas->Print("hist_nbjets.png");
+    canvas->Clear();
+    canvas->SetLogy(false);
+
+    //Histogram for MET
+
+    hist_MET->SetFillColor(kCyan);
+    hist_MET->Draw();
+    canvas->Print("hist_MET.png");
+    canvas->Clear();
+
+    //Histogram for mTW
+
+    hist_mTW->SetFillColor(kCyan);
+    hist_mTW->Draw();
+    canvas->Print("hist_mTW.png");
+    canvas->Clear();
 
 }

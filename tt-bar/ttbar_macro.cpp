@@ -6,7 +6,7 @@ void ttbar_macro (){
     
     TFile *file = TFile::Open("Data_8TeV.root");
     TTree *tree = (TTree*) file->Get("mini");
-    tree->Print()
+    tree->Print();
         
     Bool_t e_trig;
     Bool_t mu_trig;
@@ -152,7 +152,7 @@ void ttbar_macro (){
         int n_bjets=0;
     
         //Number of jets distribution
-        hist_njets->Fill(jet_n,evtw);
+        hist_njets->Fill(jet_n);
 
         //Fourth cut: At least 4 jets
         if(jet_n<4) continue; 
@@ -209,7 +209,7 @@ void ttbar_macro (){
         MeT.SetPtEtaPhiE(MET, 0, MET_phi, MET);
 
         //Calculation of the mTW using TLorentz vectors  
-        float mTW = sqrt(2*Lepton.Pt()*MeT.Et*()*(1-cos(Lepton.DeltaPhi(MeT))));
+        float mTW = sqrt(2*Lepton.Pt()*MeT.Et()*(1-cos(Lepton.DeltaPhi(MeT))));
 
         //Eight cut: mTW > 30 GeV
         hist_mTW-> Fill(mTW/1000);
@@ -239,23 +239,23 @@ void ttbar_macro (){
     canvas->Clear();
     
     //Histogram for Leptons
-    hist_lep_pt->SetFillColor(kRed);
-    hist_lep_pt->Draw();
+    hist_lept_pt->SetFillColor(kRed);
+    hist_lept_pt->Draw();
     canvas->Print("hist_lept_pt.png");
     canvas->Clear();
 
-    hist_lep_pt_cone30->SetFillColor(kCyan);
-    hist_lep_pt_cone30->Draw();
+    hist_lept_pt_cone30->SetFillColor(kCyan);
+    hist_lept_pt_cone30->Draw();
     canvas->Print("hist_lept_pt_cone30.png");
     canvas->Clear();
 
-    hist_lep_et_cone20->SetFillColor(kCyan);
-    hist_lep_et_cone20->Draw();
+    hist_lept_et_cone20->SetFillColor(kCyan);
+    hist_lept_et_cone20->Draw();
     canvas->Print("hist_lept_et_cone20.png");
     canvas->Clear();
 
-    hist_lep_eta->SetFillColor(kCyan);
-    hist_lep_eta->Draw();
+    hist_lept_eta->SetFillColor(kCyan);
+    hist_lept_eta->Draw();
     canvas->Print("hist_lept_eta.png");
     canvas->Clear();
 
@@ -266,23 +266,23 @@ void ttbar_macro (){
     canvas->Print("hist_njets.png");
     canvas->Clear();
 
-    hist_jet_pt->SetFillColor(kCyan);
-    hist_jet_pt->Draw();
+    hist_jets_pt->SetFillColor(kCyan);
+    hist_jets_pt->Draw();
     canvas->Print("hist_jets_pt.png");
     canvas->Clear();
 
-    hist_jet_eta->SetFillColor(kCyan);
-    hist_jet_eta->Draw();
+    hist_jets_eta->SetFillColor(kCyan);
+    hist_jets_eta->Draw();
     canvas->Print("hist_jets_eta.png");
     canvas->Clear();
 
-    hist_jet_JVF->SetFillColor(kCyan);
-    hist_jet_JVF->Draw();
+    hist_jets_jvf->SetFillColor(kCyan);
+    hist_jets_jvf->Draw();
     canvas->Print("hist_jets_JVF.png");
     canvas->Clear();
 
-    hist_jet_MV1->SetFillColor(kCyan);
-    hist_jet_MV1->Draw();
+    hist_jets_mv1->SetFillColor(kCyan);
+    hist_jets_mv1->Draw();
     canvas->Print("hist_jets_MV1.png");
     canvas->Clear();
 

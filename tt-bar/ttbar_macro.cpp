@@ -124,29 +124,27 @@ void ttbar_macro (){
             hist_lept_et_cone20->Fill(lep_etcone20[ii] / lep_pt[ii]);
             hist_lept_eta->Fill(lep_eta[ii]);
             
-            if( lep_pt[ii] < 25000.) continue; 
+            if( lep_pt[ii] < 25000.0 ) continue; 
             if( lep_ptcone30[ii]/lep_pt[ii] > 0.15 ) continue; 
             if( lep_etcone20[ii]/lep_pt[ii] > 0.15 ) continue;  
             // Moun
-            if( lep_type [ii]==13 && TMath::Abs(lep_eta[ii]) < 2.5 ){n_mu++; g_lep = ii;}
+            if( lep_type [ii]==13 && TMath::Abs(lep_eta[ii]) < 2.5 ){
+                n_mu++; 
+                g_lep = ii;}
             // Electron
             if( lep_type [ii]==11 && TMath::Abs(lep_eta[ii]) < 2.5 ){
-                if( TMath::Abs(lep_eta[ii]) < 1.37 || TMath::Abs(lep_eta[ii]) > 1.52 ){
-                    n_el++; g_lep = ii;}}
+                if( TMath::Abs(lep_eta[ii]) < 1.40 || TMath::Abs(lep_eta[ii]) > 1.50 ){
+                    n_el++; 
+                    g_lep = ii;}}
         }
         n_lep = n_el + n_mu;
     
         //Select events with only 1 good lepton and fill the cutflow histogram 
         if (n_lep != 1) continue;
-        cutflow-> Fill(3);
-        cut3++;
-        
         //Example:
         //Third cut (one good lepton):
-        if(n_lep!=1) continue;
         cutflow->Fill(3); 
         cut3++;
-  
     
         int n_jets=0;
         int n_bjets=0;

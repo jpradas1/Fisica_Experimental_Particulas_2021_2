@@ -136,7 +136,9 @@ void ttbar_macro (){
         n_lep = n_el + n_mu;
     
         //Select events with only 1 good lepton and fill the cutflow histogram 
-        
+        if (n_lep != 1) continue;
+        cutflow-> Fill(3);
+        cut3++;
         
         //Example:
         //Third cut (one good lepton):
@@ -156,14 +158,25 @@ void ttbar_macro (){
         cutflow->Fill(4); 
         cut4++;
 
-        for(unsigned int j=0; j<jet_n; j++){
+        for(unsigned int jj=0; jj<jet_n; jj++){
+            hist_jets_pt-> Fill(jet_pt[jj]/1000);
+            hist_jets_eta-> Fill(jet_eta[jj]);
+            hist_jets_jvf-> Fill(jet_jvf[jj]);
+            hist_jets_mv1-> Fill(jet_mv1[jj]);
+            
             // To complete: apply jet cuts to find the good jets
-            if(jet_pt[j] < 25000.) continue;
+            if(jet_pt[jj] < 25000.) continue;
             //Eta cut
-            // JVF cleaning    
+            if(jet_eta[jj] > 2.5) continue;
+            // JVF cleaning
+            if(jet_pt[jj] < 50000. && TMath::Abs(jet_eta[jj]) < 2.4){
+                if(jet_jvf[jj] < 0.5) continue;}
             n_jets++;
             // cut on 0.7892 MV1 and count the number of b-jets
-            n_bjets++;}
+            if(jet_mv1[j] < 0.7892) continue;
+            
+            n_bjets++;
+        }
     
         //Fifth cut: At least 4 good jets
         if(n_jets<4) continue; 
@@ -171,12 +184,20 @@ void ttbar_macro (){
         cut5++;
     
         //Sixth cut: at least one b-jet
-        if(n_bjets<2) continue;
+        hist_nbjets-> Fill(n_bjets);
+        if(n_bjets < 2) continue;
+   
         //cutflow
+        cutflow-> Fill(6);
+        cut6++;
         
         //Seventh cut: MET > 30 GeV
-        if(MET<30000.) continue;
+        hist_MET-> Fill(MET / 1000);
+        if(MET < 30000.) continue;
+        
         //cutflow
+        cutflow-> Fill(7);
+        cut7++;
     
         // TLorentzVector definitions                                                               
         TLorentzVector Lepton  = TLorentzVector();

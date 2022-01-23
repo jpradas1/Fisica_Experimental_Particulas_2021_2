@@ -72,8 +72,8 @@ void ttbar_macro (){
     
     // Histogram for leptons
     TH1F *hist_lept_pt  = new TH1F("Leptons pT","Lepton pT; pT (GeV); Events",10,0,10);
-    TH1F *hist_lept_pt_cone30 = new TH1F("Track Isolation","Track Isolation; lep_ptcone30/lep_pt; Events",10,0,10);
-    TH1F *hist_lept_pt_cone20 = new TH1F("Calorimeter Isolation","Calorimeter Isolation; lep_ptcone20/lep_pt; Events",10,0,10);
+    TH1F *hist_lept_pt_cone30 = new TH1F("Track Isolation","Track Isolation; lept_ptcone30/lep_pt; Events",10,0,10);
+    TH1F *hist_lept_et_cone20 = new TH1F("Calorimeter Isolation","Calorimeter Isolation; lept_etcone20/lep_pt; Events",10,0,10);
     TH1F *hist_lept_eta = new TH1F("Leptons Eta","Lepton Eta; ETa; Events",10,0,10);
     
     //Histogram for bJets
@@ -111,21 +111,33 @@ void ttbar_macro (){
         cut2++;
         cutflow->Fill(2);
         
-        // Preselection of good leptons                                                                                
+        // Preselection of good leptons                                                                
         int n_mu=0;
         int n_el=0;
         int n_lep=0;
 
         //Loop over leptons
-        for(unsigned int i=0; i<lep_n; i++){
-            if( lep_pt[i] < 25000.) continue; 
-            if( lep_ptcone30[i]/lep_pt[i] > 0.15 ) continue; 
-            if( lep_etcone20[i]/lep_pt[i] > 0.15 ) continue;  
-            if( lep_type [i]==13 && TMath::Abs(lep_eta[i]) < 2.5 ){n_mu++;}
-        //To complete: Add electrons and extract the index for the good lepton
-            n_lep++;}
+        for(unsigned int ii=0; ii<lep_n; ii++){
+            hist_lept_pt->Fill(lep_pt[ii]/1000);
+            hist_lept_pt_cone30->Fill(lep_ptcone30[ii] / lep_pt[ii]);
+            hist_lept_et_cone20->Fill(lep_etcone20[ii] / lep_pt[ii]);
+            hist_lept_eta->Fill(lep_eta[ii]);
+            
+            if( lep_pt[ii] < 25000.) continue; 
+            if( lep_ptcone30[ii]/lep_pt[ii] > 0.15 ) continue; 
+            if( lep_etcone20[ii]/lep_pt[ii] > 0.15 ) continue;  
+            // Moun
+            if( lep_type [ii]==13 && TMath::Abs(lep_eta[ii]) < 2.5 ){n_mu++;}
+            // Electron
+            if( lep_type [ii]==11 && TMath::Abs(lep_eta[ii]) < 2.5 ){
+                if( TMath::Abs(lep_eta[ii]) < 1.37 || TMath::Abs(lep_eta[ii]) > 1.52 ){
+                    n_el++;}}
+        }
+        n_lep = n_el + n_mu;
     
-         //Select events with only 1 good lepton and fill the cutflow histogram 
+        //Select events with only 1 good lepton and fill the cutflow histogram 
+        
+        
         //Example:
         //Third cut (one good lepton):
         if(n_lep!=1) continue;

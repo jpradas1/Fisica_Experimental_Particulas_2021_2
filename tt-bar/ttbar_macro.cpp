@@ -112,9 +112,10 @@ void ttbar_macro (){
         cutflow->Fill(2);
         
         // Preselection of good leptons                                                                
-        int n_mu=0;
-        int n_el=0;
-        int n_lep=0;
+        int n_mu = 0;
+        int n_el = 0;
+        int n_lep = 0;
+        int g_lep = 0;
 
         //Loop over leptons
         for(unsigned int ii=0; ii<lep_n; ii++){
@@ -127,11 +128,11 @@ void ttbar_macro (){
             if( lep_ptcone30[ii]/lep_pt[ii] > 0.15 ) continue; 
             if( lep_etcone20[ii]/lep_pt[ii] > 0.15 ) continue;  
             // Moun
-            if( lep_type [ii]==13 && TMath::Abs(lep_eta[ii]) < 2.5 ){n_mu++;}
+            if( lep_type [ii]==13 && TMath::Abs(lep_eta[ii]) < 2.5 ){n_mu++; g_lep = ii;}
             // Electron
             if( lep_type [ii]==11 && TMath::Abs(lep_eta[ii]) < 2.5 ){
                 if( TMath::Abs(lep_eta[ii]) < 1.37 || TMath::Abs(lep_eta[ii]) > 1.52 ){
-                    n_el++;}}
+                    n_el++; g_lep = ii;}}
         }
         n_lep = n_el + n_mu;
     
@@ -173,7 +174,7 @@ void ttbar_macro (){
                 if(jet_jvf[jj] < 0.5) continue;}
             n_jets++;
             // cut on 0.7892 MV1 and count the number of b-jets
-            if(jet_mv1[j] < 0.7892) continue;
+            if(jet_mv1[jj] < 0.7892) continue;
             
             n_bjets++;
         }
@@ -204,11 +205,19 @@ void ttbar_macro (){
         TLorentzVector  MeT  = TLorentzVector();
 
         //To complete: Lorentz vectors for the lepton and MET. Use SetPtEtaPhiE().
+        Lepton.SetPtEtaPhiE(lep_pt[g_lep], lep_eta[g_lep], lep_phi[g_lep], lep_E[g_lep]);
+        MeT.SetPtEtaPhiE(MET, 0, MET_phi, MET);
 
-        //Calculation of the mTW using TLorentz vectors             
-       // float mTW = sqrt(2*Lepton.Pt()*MeT.Et()*(1-cos(Lepton.DeltaPhi(MeT))));
+        //Calculation of the mTW using TLorentz vectors  
+        float mTW = sqrt(2*Lepton.Pt()*MeT.Et*()*(1-cos(Lepton.DeltaPhi(MeT))));
 
         //Eight cut: mTW > 30 GeV
+        hist_mTW-> Fill(mTW/1000);
+        if (mTW < 30000.) continue;
+        
+        //curflow
+        cutflow-> Fill(8);
+        cut8++;
     }
 
     std::cout << "Done!" << std::endl;

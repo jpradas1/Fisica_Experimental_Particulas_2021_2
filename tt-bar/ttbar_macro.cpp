@@ -65,25 +65,25 @@ void ttbar_macro (){
 
     // Histograms for Jets
     TH1F *hist_njets    = new TH1F("Number of jets","n-jets; Jet multiplicity; Events",10,0,10);
-    TH1F *hist_jets_pt  = new TH1F("Jets pT","Jet pT; pT (GeV); Events",10,0,10);
-    TH1F *hist_jets_eta = new TH1F("Jets Eta","Jet Eta; Eta; Events",10,0,10);
-    TH1F *hist_jets_jvf = new TH1F("Jets JVF","Jet JVF; JVF; Events",10,0,10);
-    TH1F *hist_jets_mv1 = new TH1F("Jets MV1","Jet MV1; MV1; Events",10,0,10);
+    TH1F *hist_jets_pt  = new TH1F("Jets pT","Jet pT; pT (GeV); Events",50,0,1000);
+    TH1F *hist_jets_eta = new TH1F("Jets Eta","Jet Eta; Eta; Events",50,-5,5);
+    TH1F *hist_jets_jvf = new TH1F("Jets JVF","Jet JVF; JVF; Events",50,0,1);
+    TH1F *hist_jets_mv1 = new TH1F("Jets MV1","Jet MV1; MV1; Events",50,0.5,1);
     
     // Histogram for leptons
-    TH1F *hist_lept_pt  = new TH1F("Leptons pT","Lepton pT; pT (GeV); Events",10,0,10);
-    TH1F *hist_lept_pt_cone30 = new TH1F("Track Isolation","Track Isolation; lept_ptcone30/lep_pt; Events",10,0,10);
-    TH1F *hist_lept_et_cone20 = new TH1F("Calorimeter Isolation","Calorimeter Isolation; lept_etcone20/lep_pt; Events",10,0,10);
-    TH1F *hist_lept_eta = new TH1F("Leptons Eta","Lepton Eta; ETa; Events",10,0,10);
+    TH1F *hist_lept_pt  = new TH1F("Leptons pT","Lepton pT; pT (GeV); Events",50,0,1000);
+    TH1F *hist_lept_pt_cone30 = new TH1F("Track Isolation","Track Isolation; lept_ptcone30/lep_pt; Events",50,0,0.2);
+    TH1F *hist_lept_et_cone20 = new TH1F("Calorimeter Isolation","Calorimeter Isolation; lept_etcone20/lep_pt; Events",50,0,0.2);
+    TH1F *hist_lept_eta = new TH1F("Leptons Eta","Lepton Eta; ETa; Events",50,-5,5);
     
     //Histogram for bJets
-    TH1F *hist_nbjets    = new TH1F("Number of b-jets","n-bjets; b-Jet multiplicity; Events",10,0,10);
+    TH1F *hist_nbjets    = new TH1F("Number of b-jets","n-bjets; b-Jet multiplicity; Events",50,0,6);
     
     // Histogram for MET
-    TH1F *hist_MET = new TH1F("MET","MET; MET (GeV); Events",10,0,10);
+    TH1F *hist_MET = new TH1F("MET","MET; MET (GeV); Events",50,0,200);
     
     // Histogram for mTW
-    TH1F *hist_mTW = new TH1F("mTW","mTW; mTW (GeV); Events",10,0,10);
+    TH1F *hist_mTW = new TH1F("mTW","mTW; mTW (GeV); Events",50,0,200);
     
     int nentries, nbytes, i;
     nentries = (Int_t)tree->GetEntries();

@@ -11,8 +11,10 @@ void ttbar_macro (){
     Bool_t e_trig;
     Bool_t mu_trig;
     Bool_t good_vtx;
+    
     UInt_t lep_n;
     UInt_t jet_n;
+    
     Float_t MET;
     Float_t MET_phi;
 
@@ -20,17 +22,24 @@ void ttbar_macro (){
     Float_t lep_eta[10];  
     Float_t lep_phi[10];  
     Float_t lep_E[10];  
+    
     Int_t lep_type[10];  
+    
     Float_t lep_ptcone30[10];
     Float_t lep_etcone20[10];
 
     Float_t jet_pt[10];
+    Float_t jet_eta[10];
+    Float_t jet_jvf[10];
+    Float_t jet_mv1[10];
     
     tree->SetBranchAddress("trigE", &e_trig);
     tree->SetBranchAddress("trigM", &mu_trig);
     tree->SetBranchAddress("hasGoodVertex", &good_vtx);
+    
     tree->SetBranchAddress("lep_n", &lep_n);
     tree->SetBranchAddress("jet_n", &jet_n);
+    
     tree->SetBranchAddress("met_et", &MET);
     tree->SetBranchAddress("met_phi", &MET_phi);
 
@@ -43,12 +52,38 @@ void ttbar_macro (){
     tree->SetBranchAddress("lep_etcone20", &lep_etcone20);
 
     tree->SetBranchAddress("jet_pt", &jet_pt);
+    tree->SetBranchAddress("jet_eta", &jet_eta);
+    tree->SetBranchAddress("jet_jvf", &jet_jvf);
+    tree->SetBranchAddress("jet_MV1", &jet_mv1);
 
     TCanvas *canvas = new TCanvas("Canvas","",800,600);
     
+    //##Histograms
+    
+    // Histogram for cuts
     TH1F *cutflow = new TH1F("Cutflow","Cutflow; Cut; Events",10,0,10);
 
-    TH1F *hist_njets = new TH1F("Number of jets","n-jets; Jet multiplicity; Events",10,0,10);
+    // Histograms for Jets
+    TH1F *hist_njets    = new TH1F("Number of jets","n-jets; Jet multiplicity; Events",10,0,10);
+    TH1F *hist_jets_pt  = new TH1F("Jets pT","Jet pT; pT (GeV); Events",10,0,10);
+    TH1F *hist_jets_eta = new TH1F("Jets Eta","Jet Eta; Eta; Events",10,0,10);
+    TH1F *hist_jets_jvf = new TH1F("Jets JVF","Jet JVF; JVF; Events",10,0,10);
+    TH1F *hist_jets_mv1 = new TH1F("Jets MV1","Jet MV1; MV1; Events",10,0,10);
+    
+    // Histogram for leptons
+    TH1F *hist_lept_pt  = new TH1F("Leptons pT","Lepton pT; pT (GeV); Events",10,0,10);
+    TH1F *hist_lept_pt_cone30 = new TH1F("Track Isolation","Track Isolation; lep_ptcone30/lep_pt; Events",10,0,10);
+    TH1F *hist_lept_pt_cone20 = new TH1F("Calorimeter Isolation","Calorimeter Isolation; lep_ptcone20/lep_pt; Events",10,0,10);
+    TH1F *hist_lept_eta = new TH1F("Leptons Eta","Lepton Eta; ETa; Events",10,0,10);
+    
+    //Histogram for bJets
+    TH1F *hist_nbjets    = new TH1F("Number of b-jets","n-bjets; b-Jet multiplicity; Events",10,0,10);
+    
+    // Histogram for MET
+    TH1F *hist_MET = new TH1F("MET","MET; MET (GeV); Events",10,0,10);
+    
+    // Histogram for mTW
+    TH1F *hist_mTW = new TH1F("mTW","mTW; mTW (GeV); Events",10,0,10);
     
     int nentries, nbytes, i;
     nentries = (Int_t)tree->GetEntries();

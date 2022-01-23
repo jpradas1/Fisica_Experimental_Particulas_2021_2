@@ -233,62 +233,62 @@ void ttbar_macro (){
     canvas-> SetLogy();
     cutflow-> SetFillColor(kBlue);
     cutflow->Draw("");
-    cutflow-> Print("cutflow.png");
+    cutflow-> Print("HGraphs/cutflow.png");
     canvas->Clear();
     
     //Histogram for Leptons
     hist_lept_pt->SetFillColor(kRed);
     hist_lept_pt->Draw();
-    canvas->Print("hist_lept_pt.png");
+    canvas->Print("HGraphs/hist_lept_pt.png");
     canvas->Clear();
 
     hist_lept_pt_cone30->SetFillColor(kCyan);
     hist_lept_pt_cone30->Draw();
-    canvas->Print("hist_lept_pt_cone30.png");
+    canvas->Print("HGraphs/hist_lept_pt_cone30.png");
     canvas->Clear();
 
     hist_lept_et_cone20->SetFillColor(kCyan);
     hist_lept_et_cone20->Draw();
-    canvas->Print("hist_lept_et_cone20.png");
+    canvas->Print("HGraphs/hist_lept_et_cone20.png");
     canvas->Clear();
 
     hist_lept_eta->SetFillColor(kCyan);
     hist_lept_eta->Draw();
-    canvas->Print("hist_lept_eta.png");
+    canvas->Print("HGraphs/hist_lept_eta.png");
     canvas->Clear();
 
     //Histogram for Jets
 
     hist_njets->SetFillColor(kCyan);
     hist_njets->Draw();
-    canvas->Print("hist_njets.png");
+    canvas->Print("HGraphs/hist_njets.png");
     canvas->Clear();
 
     hist_jets_pt->SetFillColor(kCyan);
     hist_jets_pt->Draw();
-    canvas->Print("hist_jets_pt.png");
+    canvas->Print("HGraphs/hist_jets_pt.png");
     canvas->Clear();
 
     hist_jets_eta->SetFillColor(kCyan);
     hist_jets_eta->Draw();
-    canvas->Print("hist_jets_eta.png");
+    canvas->Print("HGraphs/hist_jets_eta.png");
     canvas->Clear();
 
     hist_jets_jvf->SetFillColor(kCyan);
     hist_jets_jvf->Draw();
-    canvas->Print("hist_jets_JVF.png");
+    canvas->Print("HGraphs/hist_jets_JVF.png");
     canvas->Clear();
 
     hist_jets_mv1->SetFillColor(kCyan);
     hist_jets_mv1->Draw();
-    canvas->Print("hist_jets_MV1.png");
+    canvas->Print("HGraphs/hist_jets_MV1.png");
     canvas->Clear();
 
     //Histogram for b-Jets
 
     hist_nbjets->SetFillColor(kCyan);
     hist_nbjets->Draw();
-    canvas->Print("hist_nbjets.png");
+    canvas->Print("HGraphs/hist_nbjets.png");
     canvas->Clear();
     canvas->SetLogy(false);
 
@@ -296,14 +296,14 @@ void ttbar_macro (){
 
     hist_MET->SetFillColor(kCyan);
     hist_MET->Draw();
-    canvas->Print("hist_MET.png");
+    canvas->Print("HGraphs/hist_MET.png");
     canvas->Clear();
 
     //Histogram for mTW
 
     hist_mTW->SetFillColor(kCyan);
     hist_mTW->Draw();
-    canvas->Print("hist_mTW.png");
+    canvas->Print("HGraphs/hist_mTW.png");
     canvas->Clear();
 
 }

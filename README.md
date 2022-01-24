@@ -3,7 +3,7 @@ This respository is oriented to resolve the activities related to the course
 
 ## TT-Bar Semi-leptonic Selection
 ### Cutflow
-> <img src="tt-bar/HGraphs/cutflow.png" width="400"> <img src="tt-bar/HGraphsMC/cutflow.png" width="400">
+> <img src="tt-bar/HGraphs/cutflow.png" width="380"> <img src="tt-bar/HGraphsMC/cutflow.png" width="380">
 ### Leptons
 > <img src="tt-bar/HGraphs/hist_lept_pt.png" width="400"> <img src="tt-bar/HGraphsMC/hist_lept_pt.png" width="400">
 > <img src="tt-bar/HGraphs/hist_lept_pt_cone30.png" width="400"> <img src="tt-bar/HGraphsMC/hist_lept_pt_cone30.png" width="400">

@@ -228,7 +228,7 @@ void ttbar_macro (){
     canvas-> SetLogy();
     cutflow-> SetFillColor(kBlue);
     cutflow->Draw("");
-    cutflow-> Print("HGraphs/cutflow.png");
+    canvas-> Print("HGraphs/cutflow.png");
     canvas->Clear();
     
     //Histogram for Leptons

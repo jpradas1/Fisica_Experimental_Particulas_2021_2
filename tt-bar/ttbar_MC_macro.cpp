@@ -266,7 +266,7 @@ void ttbar_MC_macro (){
     cutflow->SetMarkerStyle(22);
     cutflow-> SetFillColor(kBlue);
     cutflow->Draw("");
-    cutflow-> Print("HGraphsMC/cutflow.png");
+    canvas-> Print("HGraphsMC/cutflow.png");
     canvas->Clear();
     
     //Histogram for Leptons

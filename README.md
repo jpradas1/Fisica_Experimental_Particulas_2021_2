@@ -5,22 +5,22 @@ This respository is oriented to resolve the activities related to the course
 ### Cutflow
 > <img src="tt-bar/HGraphs/cutflow.png" width="380"> <img src="tt-bar/HGraphsMC/cutflow.png" width="380">
 ### Leptons
-> <img src="tt-bar/HGraphs/hist_lept_pt.png" width="400"> <img src="tt-bar/HGraphsMC/hist_lept_pt.png" width="400">
-> <img src="tt-bar/HGraphs/hist_lept_pt_cone30.png" width="400"> <img src="tt-bar/HGraphsMC/hist_lept_pt_cone30.png" width="400">
-> <img src="tt-bar/HGraphs/hist_lept_et_cone20.png" width="400"> <img src="tt-bar/HGraphsMC/hist_lept_et_cone20.png" width="400">
-> <img src="tt-bar/HGraphs/hist_lept_eta.png" width="400"> <img src="tt-bar/HGraphsMC/hist_lept_eta.png" width="400">
+> <img src="tt-bar/HGraphs/hist_lept_pt.png" width="380"> <img src="tt-bar/HGraphsMC/hist_lept_pt.png" width="380">
+> <img src="tt-bar/HGraphs/hist_lept_pt_cone30.png" width="380"> <img src="tt-bar/HGraphsMC/hist_lept_pt_cone30.png" width="380">
+> <img src="tt-bar/HGraphs/hist_lept_et_cone20.png" width="380"> <img src="tt-bar/HGraphsMC/hist_lept_et_cone20.png" width="380">
+> <img src="tt-bar/HGraphs/hist_lept_eta.png" width="380"> <img src="tt-bar/HGraphsMC/hist_lept_eta.png" width="380">
 ### Jets
-> <img src="tt-bar/HGraphs/hist_njets.png" width="400"> <img src="tt-bar/HGraphsMC/hist_njets.png" width="400">
-> <img src="tt-bar/HGraphs/hist_jets_pt.png" width="400"> <img src="tt-bar/HGraphsMC/hist_jets_pt.png" width="400">
-> <img src="tt-bar/HGraphs/hist_jets_eta.png" width="400"> <img src="tt-bar/HGraphsMC/hist_jets_eta.png" width="400">
-> <img src="tt-bar/HGraphs/hist_jets_JVF.png" width="400"> <img src="tt-bar/HGraphsMC/hist_jets_JVF.png" width="400">
-> <img src="tt-bar/HGraphs/hist_jets_MV1.png" width="400"> <img src="tt-bar/HGraphsMC/hist_jets_MV1.png" width="400">
+> <img src="tt-bar/HGraphs/hist_njets.png" width="380"> <img src="tt-bar/HGraphsMC/hist_njets.png" width="380">
+> <img src="tt-bar/HGraphs/hist_jets_pt.png" width="380"> <img src="tt-bar/HGraphsMC/hist_jets_pt.png" width="380">
+> <img src="tt-bar/HGraphs/hist_jets_eta.png" width="380"> <img src="tt-bar/HGraphsMC/hist_jets_eta.png" width="380">
+> <img src="tt-bar/HGraphs/hist_jets_JVF.png" width="380"> <img src="tt-bar/HGraphsMC/hist_jets_JVF.png" width="380">
+> <img src="tt-bar/HGraphs/hist_jets_MV1.png" width="380"> <img src="tt-bar/HGraphsMC/hist_jets_MV1.png" width="380">
 ### b-Jets
-> <img src="tt-bar/HGraphs/hist_nbjets.png" width="400"> <img src="tt-bar/HGraphsMC/hist_nbjets.png" width="400">
+> <img src="tt-bar/HGraphs/hist_nbjets.png" width="380"> <img src="tt-bar/HGraphsMC/hist_nbjets.png" width="380">
 ### MET
-<img src="tt-bar/HGraphs/hist_MET.png" width="400"> <img src="tt-bar/HGraphsMC/hist_MET.png" width="400">
+<img src="tt-bar/HGraphs/hist_MET.png" width="380"> <img src="tt-bar/HGraphsMC/hist_MET.png" width="380">
 ### mTW
-<img src="tt-bar/HGraphs/hist_mTW.png" width="400"> <img src="tt-bar/HGraphsMC/hist_mTW.png" width="400">
+<img src="tt-bar/HGraphs/hist_mTW.png" width="380"> <img src="tt-bar/HGraphsMC/hist_mTW.png" width="380">
 
 ## Tracks and Clusters
 ### Exercise 1 & 2 

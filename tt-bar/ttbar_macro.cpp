@@ -10,8 +10,7 @@ void ttbar_macro (){
         
     Bool_t e_trig;
     Bool_t mu_trig;
-    Bool_t good_vtx;
-    
+    Bool_t good_vtx;    
     UInt_t lep_n;
     UInt_t jet_n;
     
@@ -21,10 +20,8 @@ void ttbar_macro (){
     Float_t lep_pt[10];  
     Float_t lep_eta[10];  
     Float_t lep_phi[10];  
-    Float_t lep_E[10];  
-    
-    Int_t lep_type[10];  
-    
+    Float_t lep_E[10];      
+    Int_t lep_type[10];      
     Float_t lep_ptcone30[10];
     Float_t lep_etcone20[10];
 
@@ -35,11 +32,9 @@ void ttbar_macro (){
     
     tree->SetBranchAddress("trigE", &e_trig);
     tree->SetBranchAddress("trigM", &mu_trig);
-    tree->SetBranchAddress("hasGoodVertex", &good_vtx);
-    
+    tree->SetBranchAddress("hasGoodVertex", &good_vtx);    
     tree->SetBranchAddress("lep_n", &lep_n);
-    tree->SetBranchAddress("jet_n", &jet_n);
-    
+    tree->SetBranchAddress("jet_n", &jet_n);    
     tree->SetBranchAddress("met_et", &MET);
     tree->SetBranchAddress("met_phi", &MET_phi);
 
@@ -99,7 +94,7 @@ void ttbar_macro (){
 
 
     for (i = 0; i < nentries; i++){
-        nbytes = tree->GetEntry(i);   
+        nbytes = tree->GetEntry(i);
 
         //First cut: Good vertex
         if(!good_vtx) continue;
@@ -242,17 +237,17 @@ void ttbar_macro (){
     canvas->Print("HGraphs/hist_lept_pt.png");
     canvas->Clear();
 
-    hist_lept_pt_cone30->SetFillColor(kCyan);
+    hist_lept_pt_cone30->SetFillColor(kRed);
     hist_lept_pt_cone30->Draw();
     canvas->Print("HGraphs/hist_lept_pt_cone30.png");
     canvas->Clear();
 
-    hist_lept_et_cone20->SetFillColor(kCyan);
+    hist_lept_et_cone20->SetFillColor(kRed);
     hist_lept_et_cone20->Draw();
     canvas->Print("HGraphs/hist_lept_et_cone20.png");
     canvas->Clear();
 
-    hist_lept_eta->SetFillColor(kCyan);
+    hist_lept_eta->SetFillColor(kRed);
     hist_lept_eta->Draw();
     canvas->Print("HGraphs/hist_lept_eta.png");
     canvas->Clear();
@@ -286,7 +281,7 @@ void ttbar_macro (){
 
     //Histogram for b-Jets
 
-    hist_nbjets->SetFillColor(kCyan);
+    hist_nbjets->SetFillColor(kGreen);
     hist_nbjets->Draw();
     canvas->Print("HGraphs/hist_nbjets.png");
     canvas->Clear();
@@ -294,14 +289,14 @@ void ttbar_macro (){
 
     //Histogram for MET
 
-    hist_MET->SetFillColor(kCyan);
+    hist_MET->SetFillColor(kGreen);
     hist_MET->Draw();
     canvas->Print("HGraphs/hist_MET.png");
     canvas->Clear();
 
     //Histogram for mTW
 
-    hist_mTW->SetFillColor(kCyan);
+    hist_mTW->SetFillColor(kGreen);
     hist_mTW->Draw();
     canvas->Print("HGraphs/hist_mTW.png");
     canvas->Clear();

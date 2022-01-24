@@ -244,10 +244,10 @@ void ttbar_MC_macro (){
         if (mTW < 30000.) continue;
         
         //curflow
-        cutflow-> Fill(8);
+        cutflow-> Fill(8, evtw);
         cut8++;
         
-        hist_mTW-> Fill(mTW/1000);
+        hist_mTW-> Fill(mTW/1000 , evtw);
     }
 
     std::cout << "Done!" << std::endl;
@@ -263,27 +263,32 @@ void ttbar_MC_macro (){
     
     // Histogram for Cuts
     canvas-> SetLogy();
+    cutflow->SetMarkerStyle(22);
     cutflow-> SetFillColor(kBlue);
     cutflow->Draw("");
     cutflow-> Print("HGraphsMC/cutflow.png");
     canvas->Clear();
     
     //Histogram for Leptons
+    hist_lept_pt->SetMarkerStyle(22);
     hist_lept_pt->SetFillColor(kRed);
     hist_lept_pt->Draw();
     canvas->Print("HGraphsMC/hist_lept_pt.png");
     canvas->Clear();
 
+    hist_lept_pt_cone30->SetMarkerStyle(22);
     hist_lept_pt_cone30->SetFillColor(kRed);
     hist_lept_pt_cone30->Draw();
     canvas->Print("HGraphsMC/hist_lept_pt_cone30.png");
     canvas->Clear();
 
+    hist_lept_et_cone20->SetMarkerStyle(22);
     hist_lept_et_cone20->SetFillColor(kRed);
     hist_lept_et_cone20->Draw();
     canvas->Print("HGraphsMC/hist_lept_et_cone20.png");
     canvas->Clear();
 
+    hist_lept_eta->SetMarkerStyle(22);
     hist_lept_eta->SetFillColor(kRed);
     hist_lept_eta->Draw();
     canvas->Print("HGraphsMC/hist_lept_eta.png");
@@ -291,26 +296,31 @@ void ttbar_MC_macro (){
 
     //Histogram for Jets
 
+    hist_njets->SetMarkerStyle(22);
     hist_njets->SetFillColor(kCyan);
     hist_njets->Draw();
     canvas->Print("HGraphsMC/hist_njets.png");
     canvas->Clear();
 
+    hist_jets_pt->SetMarkerStyle(22);
     hist_jets_pt->SetFillColor(kCyan);
     hist_jets_pt->Draw();
     canvas->Print("HGraphsMC/hist_jets_pt.png");
     canvas->Clear();
 
+    hist_jets_eta->SetMarkerStyle(22);
     hist_jets_eta->SetFillColor(kCyan);
     hist_jets_eta->Draw();
     canvas->Print("HGraphsMC/hist_jets_eta.png");
     canvas->Clear();
 
+    hist_jets_jvf->SetMarkerStyle(22);
     hist_jets_jvf->SetFillColor(kCyan);
     hist_jets_jvf->Draw();
     canvas->Print("HGraphsMC/hist_jets_JVF.png");
     canvas->Clear();
 
+    hist_jets_mv1->SetMarkerStyle(22);
     hist_jets_mv1->SetFillColor(kCyan);
     hist_jets_mv1->Draw();
     canvas->Print("HGraphsMC/hist_jets_MV1.png");
@@ -318,6 +328,7 @@ void ttbar_MC_macro (){
 
     //Histogram for b-Jets
 
+    hist_nbjets->SetMarkerStyle(22);
     hist_nbjets->SetFillColor(kGreen);
     hist_nbjets->Draw();
     canvas->Print("HGraphsMC/hist_nbjets.png");
@@ -326,6 +337,7 @@ void ttbar_MC_macro (){
 
     //Histogram for MET
 
+    hist_MET->SetMarkerStyle(22);
     hist_MET->SetFillColor(kGreen);
     hist_MET->Draw();
     canvas->Print("HGraphsMC/hist_MET.png");
@@ -333,6 +345,7 @@ void ttbar_MC_macro (){
 
     //Histogram for mTW
 
+    hist_mTW->SetMarkerStyle(22);
     hist_mTW->SetFillColor(kGreen);
     hist_mTW->Draw();
     canvas->Print("HGraphsMC/hist_mTW.png");

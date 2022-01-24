@@ -117,7 +117,7 @@ void ttbar_MC_macro (){
         Float_t N_MC_evt = 49761200.21;
         Float_t filter = 0.072212854;
         
-        loat_t L_MC = N_MC_evt * filter / sigma;
+        Float_t L_MC = N_MC_evt * filter / sigma;
 
         Float_t eventWeight = 1000 / L_MC;
         Float_t scaleF = scalef_pileup * scalef_e * scalef_mu * scalef_btag;

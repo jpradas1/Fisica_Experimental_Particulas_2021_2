@@ -216,10 +216,12 @@ Bool_t ZprimeAnalysis::Process(Long64_t entry)
             Jet4.SetPtEtaPhiE(jet_pt[3], jet_eta[3], jet_phi[3],jet_E[3]);        
             
             TotalMomentum = Jet1 + Jet2 + Jet3 + Jet4 + Lepton1_MeT;
+	    twojets = Jet1 + Jet2;
+	    threejets = Jets1 + Jets2 + Jets3;
             float InvMassZprime = TotalMomentum.Mag();  
                     
                     
-				double names_of_global_variable[]={InvMass1_inGeV, missingEt, vxp_z, (double)pvxp_n, Lepton1_MeT_MT/1000.,InvMassZprime/1000.};
+	    double names_of_global_variable[]={InvMass1_inGeV, missingEt, vxp_z, (double)pvxp_n, Lepton1_MeT_MT/1000.,InvMassZprime/1000., twojetsmass/1000.,threejetsmass/1000.};
 				double names_of_leadlep_variable[]={Lepton_1.Pt()/1000., Lepton_1.Eta(), Lepton_1.E()/1000., Lepton_1.Phi(), lep_charge[goodlep_index], (double)lep_type[goodlep_index], lep_ptcone30[goodlep_index], lep_etcone20[goodlep_index], lep_z0[goodlep_index], lep_trackd0pvunbiased[goodlep_index]};
 				double names_of_jet_variable[]={(double)jet_n, jet_pt[0]/1000., jet_eta[0], jet_m[0]/1000., jet_jvf[0], jet_MV1[0]};
 				
